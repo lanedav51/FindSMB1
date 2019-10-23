@@ -10,6 +10,7 @@ foreach($Computer in $Computers)
     $obj = new-object psobject -Property @{
         ComputerName = $Computer
     }
+    Exit-PSSession
     if($SMB1 -eq "True" -AND $i -eq 0)
     {
         $obj | Export-Csv -Path "SMB1Enabled$(get-date -f yyyy-MM-dd).csv"
@@ -20,5 +21,4 @@ foreach($Computer in $Computers)
         $obj | Export-Csv -Path "SMB1Enabled$(get-date -f yyyy-MM-dd).csv" -Append
         $i++
     }
-    Exit-PSSession
 }
