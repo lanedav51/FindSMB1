@@ -12,12 +12,12 @@ foreach($Computer in $Computers)
     }
     if($SMB1 -eq "True" -AND $i -eq 0)
     {
-        $obj | Export-Csv -Path SMB1Enabled.csv
+        $obj | Export-Csv -Path "SMB1Enabled$(get-date -f yyyy-MM-dd).csv"
         $i++
     }
     elseif ($SMB1 -eq "True" -AND $i -ge 1) 
     {
-        $obj | Export-Csv -Path SMB1Enabled.csv -Append
+        $obj | Export-Csv -Path "SMB1Enabled$(get-date -f yyyy-MM-dd).csv" -Append
         $i++
     }
     Exit-PSSession
